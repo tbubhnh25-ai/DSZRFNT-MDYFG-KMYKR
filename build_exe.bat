@@ -12,16 +12,12 @@ if errorlevel 1 (
     exit /b 1
 )
 
-echo [1/3] התקנת ספריות נדרשות...
-pip install --upgrade pip
-pip install cryptography pyinstaller
+echo [1/3] התקנת pyinstaller...
+pip install pyinstaller
 
 echo.
 echo [2/3] בניית קובץ EXE עצמאי ונייד (Portable Single File)...
-pyinstaller --noconfirm --clean --onefile --windowed ^
-    --name "ChromeVault" ^
-    --add-data "chrome_vault;chrome_vault" ^
-    main.py
+pyinstaller ChromeVault.spec
 
 if errorlevel 1 (
     echo.
