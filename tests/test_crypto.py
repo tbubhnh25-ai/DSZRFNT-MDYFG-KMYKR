@@ -8,7 +8,7 @@ def test_encryption_decryption_success():
     encrypted = encrypt_data(secret, passcode)
     assert encrypted != secret
     assert len(encrypted) > len(secret)
-    assert encrypted.startswith(b"CPV2")
+    assert encrypted.startswith(b"CPV3")
 
     decrypted = decrypt_data(encrypted, passcode)
     assert decrypted == secret
